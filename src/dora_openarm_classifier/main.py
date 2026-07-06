@@ -151,7 +151,10 @@ def main():
             continue
 
         if event["id"] == "position":
-            last_pos = event["value"].to_numpy(zero_copy_only=False)
+            value = event["value"]
+            if isinstance(value, pa.StructArray):
+                value = value.field("qpos")
+            last_pos = value.to_numpy(zero_copy_only=False)
             last_right_pos = last_pos[:8]
             last_left_pos = last_pos[8:]
             continue
