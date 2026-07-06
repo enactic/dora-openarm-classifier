@@ -1,4 +1,4 @@
-# dora-openarm-qwen-dummy
+# dora-openarm-classifier
 
 dora-rs node that classifies whether the current state completes the
 task successfully or not.
