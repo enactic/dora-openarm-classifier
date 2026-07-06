@@ -218,7 +218,9 @@ def main():
                 flush=True,
             )
             node.send_output(
-                "result", pa.array([agg]), metadata={"verdict": verdict, "frame": n}
+                "result",
+                pa.array([agg], type=pa.float32()),
+                metadata={"verdict": verdict, "frame": n},
             )
 
 
